@@ -14,7 +14,6 @@ if(USE_MYMATH)
     #add subdirectory
     add_subdirectory(MathFunctions)
     list(APPEND EXTRA_LIBS MathFunctions)
-    list(APPEND EXTRA_INCLUDES "${PROJECT_SOURCE_DIR}/MathFunctions")
 endif()
 
 # add the executable
@@ -24,7 +23,7 @@ add_executable(Tutorial tutorial.cpp)
 target_link_libraries(Tutorial PUBLIC MathFunctions)
 
 
-target_include_directories(Tutorial PUBLIC "${PROJECT_BINARY_DIR}"   ${EXTRA_INCLUDES})
+target_include_directories(Tutorial PUBLIC "${PROJECT_BINARY_DIR}")
 
 
 
