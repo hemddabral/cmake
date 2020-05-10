@@ -1,6 +1,12 @@
 #include <iostream>
 #include "TutorialConfig.h"
 
+#ifdef USE_MYMATH
+#include "MathFunctions.h"
+#else
+#include <cmath>
+#endif // USE_MYMATH
+
 int main(int argc, char *argv[]) {
 	  if (argc < 2) {
 		      // report version
@@ -11,8 +17,17 @@ int main(int argc, char *argv[]) {
 		      }
 
 	
-	std::cout << "Hello world. Testing REISC simulator and Compiler\n";
+	std::cout << "Hello world. cmake tutorial\n";
 
+	float outputValue = -1;
+
+#ifdef USE_MYMATH
+	outputValue = mysqrt(100);
+#else
+	float inputValue = 100;
+	outputValue = std::sqrt(inputValue);
+#endif	
+        std::cout << outputValue <<"\n";
 	return 0;
 
 }
